@@ -1,33 +1,9 @@
-let a: unknown;
+// function add(a: number, b: number) {
+//   return a + b;
+// }
 
-// let b = a + 1;
-if (typeof a === 'number') {
-  let b = a + 1;
-}
+// const add = (a: number, b: number) => a + b;
 
-// let b = a.toUpperCase();
-if (typeof a === 'string') {
-  let b = a.toUpperCase();
-}
+type Add = (a: number, b: number) => number;
 
-function hello(): void {
-  console.log('hello');
-}
-
-const c = hello();
-// c.toUpperCase();
-
-function hello2(): never {
-  throw new Error('error');
-}
-
-function hello3(name: string | number) {
-  if (typeof name === 'string') {
-    name;
-  }
-  if (typeof name === 'number') {
-    name;
-  } else {
-    name;
-  }
-}
+const add: Add = (a, b) => a + b;

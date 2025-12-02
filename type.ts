@@ -1,27 +1,43 @@
-// type SuperPrint = {
-//   <T>(arr: T[]): void;
-// };
+function superPrint<V>(a: V[]) {
+  return a[0];
+}
 
-// const superPrint: SuperPrint = (arr) => {
-//   arr.forEach((item) => {
-//     console.log(item);
-//   });
-// };
-
-// superPrint([1, 2, 3, 4]);
-// superPrint([true, false, true]);
-// superPrint(['a', 'b', 'c']);
-// superPrint([1, 2, true, false]);
-
-type SuperPrint = {
-  <T, V>(arr: T[], b: V): T;
-};
-
-const superPrint: SuperPrint = (arr) => arr[0];
-
-const a = superPrint([1, 2, 3, 4], 'x');
-const b = superPrint([true, false, true], 1);
-const c = superPrint(['a', 'b', 'c'], false);
-const d = superPrint([1, 2, true, false], []);
+const a = superPrint([1, 2, 3, 4]);
+const b = superPrint([true, false, true]);
+const c = superPrint(['a', 'b', 'c']);
+const d = superPrint([1, 2, true, false]);
 
 console.log(a, b, c, d);
+
+type Player<E> = {
+  name: string;
+  extraInfo: E;
+};
+type SepiExtra = {
+  favFood: string;
+};
+type SepiPlayer = Player<SepiExtra>;
+
+const sepi: SepiPlayer = {
+  name: 'sepi',
+  extraInfo: {
+    favFood: 'hamburger',
+  },
+};
+
+const elliot: Player<null> = {
+  name: 'elliot',
+  extraInfo: null,
+};
+
+type A = Array<number>;
+
+let a: A = [1, 2, 3, 4];
+
+function printAllNumbers(arr: Array<number>) {
+  arr.forEach((item) => {
+    console.log(item);
+  });
+}
+
+printAllNumbers(a);

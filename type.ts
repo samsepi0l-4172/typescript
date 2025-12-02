@@ -1,14 +1,33 @@
-const player: readonly [string, number, boolean] = ['sepi', 12, true];
+let a: unknown;
 
-let a: undefined = undefined;
-let b: null = null;
+// let b = a + 1;
+if (typeof a === 'number') {
+  let b = a + 1;
+}
 
-type Player = {
-  age?: number;
-};
+// let b = a.toUpperCase();
+if (typeof a === 'string') {
+  let b = a.toUpperCase();
+}
 
-let c = [];
+function hello(): void {
+  console.log('hello');
+}
 
-const d: any[] = [1, 2, 3, 4];
-const e: any = true;
-d + e;
+const c = hello();
+// c.toUpperCase();
+
+function hello2(): never {
+  throw new Error('error');
+}
+
+function hello3(name: string | number) {
+  if (typeof name === 'string') {
+    name;
+  }
+  if (typeof name === 'number') {
+    name;
+  } else {
+    name;
+  }
+}

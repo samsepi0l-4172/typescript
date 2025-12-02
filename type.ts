@@ -5,7 +5,7 @@ let c: boolean[] = [true];
 type Age = number;
 
 type Player = {
-  name: string;
+  readonly name: string;
   age?: Age;
 };
 
@@ -30,3 +30,9 @@ const PlayerMaker = (name: string): Player => ({ name });
 
 const elliot = PlayerMaker('elliot');
 elliot.age = 12;
+sepi.name = 'sepi2';
+
+const numbers: readonly number[] = [1, 2, 3];
+numbers.push(4);
+
+const names: readonly string[] = ['1', '2'];

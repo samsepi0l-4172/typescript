@@ -1,38 +1,14 @@
-let a: number[] = [1, 2];
-let b: string[] = ['1', '2'];
-let c: boolean[] = [true];
+const player: readonly [string, number, boolean] = ['sepi', 12, true];
 
-type Age = number;
+let a: undefined = undefined;
+let b: null = null;
 
 type Player = {
-  readonly name: string;
-  age?: Age;
+  age?: number;
 };
 
-const sepi: Player = {
-  name: 'sepi',
-};
-const momo: Player = {
-  name: 'momo',
-};
-sepi.name;
+let c = [];
 
-if (sepi.age && sepi.age < 10) {
-}
-
-// function PlayerMaker(name: string): Player {
-//   return {
-//     name,
-//   };
-// }
-
-const PlayerMaker = (name: string): Player => ({ name });
-
-const elliot = PlayerMaker('elliot');
-elliot.age = 12;
-sepi.name = 'sepi2';
-
-const numbers: readonly number[] = [1, 2, 3];
-numbers.push(4);
-
-const names: readonly string[] = ['1', '2'];
+const d: any[] = [1, 2, 3, 4];
+const e: any = true;
+d + e;

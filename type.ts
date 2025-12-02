@@ -1,46 +1,27 @@
-// function add(a: number, b: number) {
-//   return a + b;
-// }
-
-// const add = (a: number, b: number) => a + b;
-
-// type Add = {
-//   (a: number, b: number): number;
-//   (a: number, b: string): number;
+// type SuperPrint = {
+//   <T>(arr: T[]): void;
 // };
 
-// const add: Add = (a, b) => {
-//   if (typeof b === 'string') return a;
-//   return a + b;
+// const superPrint: SuperPrint = (arr) => {
+//   arr.forEach((item) => {
+//     console.log(item);
+//   });
 // };
 
-type Config = {
-  path: string;
-  state: object;
+// superPrint([1, 2, 3, 4]);
+// superPrint([true, false, true]);
+// superPrint(['a', 'b', 'c']);
+// superPrint([1, 2, true, false]);
+
+type SuperPrint = {
+  <T>(arr: T[]): T;
 };
 
-type Push = {
-  (path: string): void;
-  (config: Config): void;
-};
+const superPrint: SuperPrint = (arr) => arr[0];
 
-const push: Push = (config) => {
-  if (typeof config === 'string') {
-    console.log(config);
-  } else {
-    console.log(config.path, config.state);
-  }
-};
+const a = superPrint([1, 2, 3, 4]);
+const b = superPrint([true, false, true]);
+const c = superPrint(['a', 'b', 'c']);
+const d = superPrint([1, 2, true, false]);
 
-type Add = {
-  (a: number, b: number): number;
-  (a: number, b: number, c: number): number;
-};
-
-const add: Add = (a, b, c?: number) => {
-  if (typeof c === 'number') return a + b + c;
-  return a + b;
-};
-
-add(1, 2);
-add(1, 2, 3);
+console.log(a, b, c, d);
